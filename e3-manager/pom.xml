@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>e3-parent</artifactId>
+    <groupId>com.sinoma</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.sinoma</groupId>
+  <artifactId>e3-manager</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <description>是父工程也是聚合工程，但是是parent的子工程</description>
+  
+   <dependencies>
+			<!-- 时间操作组件 -->
+			<dependency>
+			<groupId>com.sinoma</groupId>
+  			<artifactId>e3-common</artifactId>
+  			<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+	</dependencies>
+		
+  
+  <modules>
+  	<module>e3-manager-dao</module>
+  	<module>e3-manager-pojo</module>
+  	<module>e3-manager-interface</module>
+  	<module>e3-manager-service</module>
+  	<module>e3-manager-web</module>
+  </modules>
+  <build>
+		<plugins>
+				<!-- 配置Tomcat插件 -->
+				<plugin>
+					<groupId>org.apache.tomcat.maven</groupId>
+					<artifactId>tomcat7-maven-plugin</artifactId>
+					<configuration>
+						<path>/</path>        <!-- 不写的话待工程名 -->
+						<port>8888</port>
+					</configuration>
+					<version>2.2</version>
+				</plugin>
+			</plugins>
+		</build>
+</project>
